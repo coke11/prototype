@@ -7,67 +7,103 @@
  Thanks!
  -->
 
-<!-- Working now. We need a box that we can drag the contents into... We do...
- -->
-
-<!-- NOTE FROM COKE!!!!!!!!! Please report to the topic & trello for what is going on. Right now if you are a prototyper please go to the
- google doc, where you will see what you need to inculed in the prototype itself. (and use the chst) Thanks ~coke -->
 <html>
     <head>
         <title>Prototype - DragonDrop Editor</title>
         <style>
-            #div1 {width:100%;height:20px;}
-            #div2 {width:100%;height:20px;}
-            #boxit {
-                border-style: solid;
-                border-width: 1px;
-            }
+        body{margin:0;}
+            #div1 {border-style: solid;min-height:20px;word-wrap:break-word;
+        #div2 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div3 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div4 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div5 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div6 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div7 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div8 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div9 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #div10 {height:20px;border-style: solid;
+            border-width: 1px;}
+        #boxit {
+            border-style: solid;
+            border-width: 1px;
+        }
         </style>
     </head>
     <body>
         <div id="boxit">
             <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
         
         <img id="text" src="https://trello-attachments.s3.amazonaws.com/57b47ba6692b3505e6d0a7ee/437x244/55f794060c601788cb058bb5974f63d2/text.png" draggable="true"
             ondragstart="drag(event)" width="81" height="45">
-            <img id="IcyCoder" src="https://cdn2.scratch.mit.edu/get_image/user/15791657_60x60.png?" draggable="true"
+            <img id="photo" src="https://cdn2.scratch.mit.edu/get_image/user/15791657_60x60.png?" draggable="true"
                 ondragstart="drag(event)" width="20" height="20">
-                <img id="golden-scratch" src="https://cdn2.scratch.mit.edu/get_image/user/2906056_60x60.png?" draggable="true"
+      					<img id="ytembed" src="https://cdn2.scratch.mit.edu/get_image/user/2906056_60x60.png?" draggable="true"
                     ondragstart="drag(event)" width="20" height="20">
-                    
+                  <img id="scratchembed" src="https://cdn2.scratch.mit.edu/get_image/user/2906056_60x60.png?" draggable="true"
+                      ondragstart="drag(event)" width="20" height="20">
+                      <img id="html" src="https://avatars0.githubusercontent.com/u/18520232?v=3&s=460" draggable="true"
+                          ondragstart="drag(event)" width="20" height="20">
+      									<img id="link" src="https://cdn2.scratch.mit.edu/get_image/user/2906056_60x60.png?" draggable="true"
+                      ondragstart="drag(event)" width="20" height="20">
+
+
                     <script>
-                        var numdiv = 1;
-                        function newDropArea() { //not done yet
-                            numdiv += 1;
-                            var div = document.createElement('div');
-                            div.setAttribute('id', 'div' + numdiv);
-                            div.setAttribute('ondrop', 'drop(event)');
-                            div.setAttribute('ondragover', 'allowDrop(event)');
+                        function allowDrop(ev) {
+                            ev.preventDefault();
                         }
-                    
-                    function allowDrop(ev) {
-                        ev.preventDefault();
-                    }
                     
                     function drag(ev) {
                         ev.dataTransfer.setData("text", ev.target.id);
                     }
                     
                     function drop(ev) {
+												var y = document.getElementById(ev.target.id).innerHTML;
                         ev.preventDefault();
                         var data = ev.dataTransfer.getData("text");
                         if (data == "text") {
-                            var x = prompt("What text do you want here?","ENTER YOUR TEXT HERE");
-                            document.getElementById(ev.target.id).innerHTML = x;
+                            var text = prompt("What text do you want here?","ENTER YOUR TEXT HERE");
+                            document.getElementById(ev.target.id).innerHTML = y .textContent = text;
                         }
-                        if (data == "IcyCoder") {
-                            var x = prompt("What text do you want here?","ENTER YOUR TEXT HERE");
-                            document.getElementById(ev.target.id).innerHTML = x;
+                        if (data == "photo") {
+                            var pic = prompt("Leave a link to your picture here","INSERT PHOTO LINK HERE");
+                            document.getElementById(ev.target.id).innerHTML = y + "<img src='" + pic + "' />";
                         }
-                        if (data == "golden-scratch") {
-                            var x = prompt("What text do you want here?","ENTER YOUR TEXT HERE");
-                            document.getElementById(ev.target.id).innerHTML = x;
+                        if (data == "ytembed") {
+                            var x = prompt("YouTube Video ID","");
+                            document.getElementById(ev.target.id).innerHTML = y + "<iframe width=560 height=315 src=https://www.youtube.com/embed/" + x + " frameborder="0" allowfullscreen></iframe>>";
+                        }
+                        if (data == "scratchembed") {
+                            var x = prompt("Project ID","118225589");
+														if (x != null) {
+                            	document.getElementById(ev.target.id).innerHTML = y + "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" + x + " width=485 height=395>";
+														}
+                        }
+												if (data == "html") {
+                            var text = prompt("What HTML do you want here?","ENTER YOUR TEXT HERE");
+                            document.getElementById(ev.target.id).innerHTML = y + text;
+                        }
+                        if (data == "link") {
+                            var url = prompt("URL?","ENTER YOUR URL HERE");
+                            var text = prompt("Text?","ENTER YOUR URL HERE");
+                            document.getElementById(ev.target.id).innerHTML = y + "<a href=url>" + text + "</a>";
                         }
                     }
                     
