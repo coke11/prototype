@@ -1,0 +1,91 @@
+<!--
+ What does this do?
+ This is a prototype that at the moment each image is assigned with a specific function if you drag it to one of the divs they will add code
+ to replace that div if you did something by accedent you can just drag something over that to replace it.
+ Try it out by using copying and pasting the code to http://htmledit.squarefree.com
+ 
+ Thanks!
+ -->
+
+<!-- NOTE FROM COKE!!!!!!!!! Please report to the topic & trello for what is going on. Right now if you are a prototyper please go to the
+ google doc, where you will see what you need to inculed in the prototype itself. (and use the chst) Thanks ~coke -->
+<html>
+    <head>
+        <title>Prototype - DragonDrop Editor</title>
+        <style>
+            #div1 {width:100%;height:500px;border-style: solid;
+              border-width: 1px;}
+                #div2 {width:100%;height:500px;border-style: solid;
+                  border-width: 1px;}
+                    #div3 {width:100%;height:20px;border-style: solid;
+                      border-width: 1px;}
+                        #div4 {width:100%;height:20px;border-style: solid;
+                          border-width: 1px;}
+                            #div5 {width:100%;height:20px;border-style: solid;
+                              border-width: 1px;}
+                                #div6 {width:100%;height:20px;border-style: solid;
+                                  border-width: 1px;}
+                                    #div7 {width:100%;height:20px;border-style: solid;
+                                      border-width: 1px;}
+                                        #div8 {width:100%;height:20px;border-style: solid;
+                                          border-width: 1px;}
+                                            #div9 {width:100%;height:20px;border-style: solid;
+                                              border-width: 1px;}
+                                                #div10 {width:100%;height:20px;border-style: solid;
+                                                  border-width: 1px;}
+                                                    #boxit {
+                                                        border-style: solid;
+                                                        border-width: 1px;
+                                                    }
+        </style>
+    </head>
+    <body>
+        <div id="boxit">
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        
+        <img id="text" src="https://trello-attachments.s3.amazonaws.com/57b47ba6692b3505e6d0a7ee/437x244/55f794060c601788cb058bb5974f63d2/text.png" draggable="true"
+            ondragstart="drag(event)" width="81" height="45">
+            <img id="picture" src="https://cdn2.scratch.mit.edu/get_image/user/15791657_60x60.png?" draggable="true"
+                ondragstart="drag(event)" width="20" height="20">
+                <img id="golden-scratch" src="https://cdn2.scratch.mit.edu/get_image/user/2906056_60x60.png?" draggable="true"
+                    ondragstart="drag(event)" width="20" height="20">
+                    
+                    <script>
+                        function allowDrop(ev) {
+                            ev.preventDefault();
+                        }
+                    
+                    function drag(ev) {
+                        ev.dataTransfer.setData("text", ev.target.id);
+                    }
+                    
+                    function drop(ev) {
+                        ev.preventDefault();
+                        var data = ev.dataTransfer.getData("text");
+                        if (data == "text") {
+                            var text = prompt("What text do you want here?","ENTER YOUR TEXT HERE");
+                            document.getElementById(ev.target.id).innerHTML = text;
+                        }
+                        if (data == "picture") {
+                            var pic = prompt("Leave a link to your picture here","INSERT PHOTO LINK HERE");
+                            document.getElementById(ev.target.id).innerHTML = "<img src='" + pic + "' />";
+                        }
+                        if (data == "golden-scratch") {
+                            var x = prompt("What text do you want here?","ENTER YOUR TEXT HERE");
+                            document.getElementById(ev.target.id).innerHTML = x;
+                        }
+                    }
+                    
+                        </script>
+    </body>
+</html>
