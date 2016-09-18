@@ -455,6 +455,11 @@ SOFTWARE.
             document.getElementById('dialogue').style.visibility = 'visible';
             document.getElementById('dialoguetext').innerHTML = alertedtext;
         }
+        
+        function previewIt() {
+            var html = document.getElementById("div1").innerHTML;
+            var dataURI = 'data:text/html,' + encodeURIComponent(html);
+        }
         </script>
     </center>
     <div id="dialogue">
