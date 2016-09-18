@@ -133,5 +133,5 @@ function alert2(alertedtext) {
 function previewIt() {
     var html = document.getElementById("div1").innerHTML;
     var dataURI = 'data:text/html,' + encodeURIComponent(html);
-    prompt("Click CTRL+C or CMND+C to copy.", dataURI);
+    window.open(dataURI);
 }
