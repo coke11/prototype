@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2016-2018, The DragonDrop Company
+Copyright (c) 2016-2018, The Dragon-Drop Company
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,7 @@ SOFTWARE.
 
     <head>
         <title>DragonDrop Editor</title>
+        <link rel="stylesheet" href="https://csf30816.github.io/font/style.css">
         <link href="https://file.myfontastic.com/9LTB4UoLJhFtVmhyo7SnqM/icons.css" rel="stylesheet">
         <link id="favicon" rel="shortcut icon" type="image/png" href="https://cdn2.scratch.mit.edu/get_image/user/17757195_60x60.png?v=1471181436.56" />
         <style>
@@ -125,7 +126,7 @@ SOFTWARE.
             <div id="blue_nav">
                 <div class="syms white-blue">
                     <span class="DD">DragonDrop</span>
-                     <span class="icon-user white-blue"></span>&nbsp;csf30816<span class="icon-triangle-down"></span>
+                     <span class="icon-torso white-blue"></span>&nbsp;csf30816<span class="icon-triangle-down"></span>
                      &nbsp;&nbsp;|&nbsp;&nbsp;
                      <span class="icon-lock-open"></span>&nbsp;Publish
                      &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -134,6 +135,8 @@ SOFTWARE.
                      <span class="icon-widget"></span>&nbsp;Settings
                 </div>
             </div>
+        </div>
+        <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)">
         </div>
         <center class="things">
 
@@ -336,12 +339,11 @@ generated automatically and are common for each slider. */
                     var data = ev.dataTransfer.getData("text");
                     if (data == "text") {
 
-                        var text = "default text";
+                        var text = prompt("What text do you want here?",
+                            "ENTER YOUR TEXT HERE");
                         if (text !== null) {
                             document.getElementById(ev.target.id).innerHTML = y + text +
                                 "<br>";
-                            document.getElementById(ev.target.id).innerHTML = "<input type='textbox' value=text></input>";
-                            document.getElementById(ev.target.id).id = "textbox";
                             textelement = text + "  "
                             exportcode = exportcode + "<center>" + text + "<br>";
                         }
@@ -374,8 +376,8 @@ generated automatically and are common for each slider. */
                         var x = prompt("Project ID", "118225589");
                         if (x !== null) {
                             document.getElementById(ev.target.id).innerHTML = y +
-                                '      <iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/'+x+'/?autostart=false" frameborder="0" allowfullscreen></iframe>
-    ';
+                                "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" + x +
+                                " width=485 height=395>";
                             exportcode = exportcode + "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" + x +
                                 " width=485 height=395>"
                         }
@@ -429,8 +431,6 @@ generated automatically and are common for each slider. */
                     prompt("Click CTRL+C or CMND+C to copy.", exportcode)
                 }
             </script>
-            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)">
-        </div>
         </center>
 
     </body>
