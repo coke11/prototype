@@ -75,7 +75,7 @@ function drop(ev) {
 }
 
 function bgcolask() {
-    var bgcolaskit = prompt("What do you want your background color to be?");
+    var bgcolaskit = prompt("What do you want your background color to be?", "Enter a HEX value here");
     document.getElementById("div1").style.backgroundColor = bgcolaskit;
     addbgtoex();
 }
