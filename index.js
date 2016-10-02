@@ -125,6 +125,7 @@ swal({
     swal(
         "This function is not available!",
         //"You wrote: " + inputValue,
+        "",
         "error"
     );
 });
