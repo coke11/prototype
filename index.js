@@ -107,6 +107,28 @@ function addbgtoex() {
     exportcode = exportcode + "<style>body{background-color: " + bgcolaskit +
         "}<\/style>";
 }
+function  themeask(){
+swal({
+    title: "Theme",
+    text: "Themes: 'Rasberry', 'Peace', and 'DragonDrop'",
+    type: "input",
+    showCancelButton: true,
+    closeOnConfirm: false,
+    animation: "slide-from-top",
+    inputPlaceholder: "Enter a Theme name" },
+    function(inputValue){
+    if (inputValue === false) return false;
+    if (inputValue === "") {
+        swal.showInputError("You forgot to fill out the theme!!");
+        return false
+    }
+    swal(
+        "This function is not available!",
+        //"You wrote: " + inputValue,
+        "error"
+    );
+});
+}
 
 function templates() {
     alert2(
