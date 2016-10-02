@@ -132,15 +132,11 @@ swal({
 }
 
 function templates() {
-    alert2(
-        "This feature will be commng out in future versions.<br> For now, you have to make your own website."
-    );
+    swal("Waoh!", "Feature not available!!", "error")
 }
 
 function submit() {
-    alert2(
-        "This feature will be commng out in future versions.<br> For now, you can use the export code button."
-    );
+    swal("Waoh!", "Feature not available!!", "error")
 }
 
 function closedialogue() {
