@@ -62,10 +62,10 @@ function drop(ev) {
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
-                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
+                    "<embed src=https://scratchv.usa.cc/dragon-drop.html?id=" +
                     inputValue + " width=485 height=395>";
                 exportcode = exportcode +
-                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
+                    "<embed src=https://scratchv.usa.cc/dragon-drop.html?id=" +
                     inputValue + " width=485 height=395>"
                 swal("Yay!", "Element added!", "");
             });
