@@ -23,7 +23,7 @@ function drop(ev) {
             document.getElementById(ev.target.id).innerHTML = y + text +
                 "<br>";
             textelement = text + "  ";
-            exportcode = exportcode + "<center>" + text + "<br>";
+            exportcode = exportcode + text + "<br>";
         }
     }
     if (data == "photo") {
