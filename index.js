@@ -67,6 +67,7 @@ function drop(ev) {
                 exportcode = exportcode +
                     "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
                     inputValue + " width=485 height=395>"
+                swal("Yay!", "Element added!", "");
             });
     }
     if (data == "html") {
