@@ -47,15 +47,27 @@ function drop(ev) {
         }
     }
     if (data == "scratchembed") {
-        var x = prompt("Project ID", "118225589");
-        if (x !== null) {
-            document.getElementById(ev.target.id).innerHTML = y +
-                "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
-                x + " width=485 height=395>";
-            exportcode = exportcode +
-                "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
-                x + " width=485 height=395>"
-        }
+        swal({
+                title: "Scratch Embed",
+                text: "Enter a Scratch project ID",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "12345678"
+            }, function(inputValue) {
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("Please enter a scratch ID");
+                    return false
+                }
+                document.getElementById(ev.target.id).innerHTML = y +
+                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
+                    inputValue + " width=485 height=395>";
+                exportcode = exportcode +
+                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
+                    inputValue + " width=485 height=395>"
+            });
     }
     if (data == "html") {
         swal({
