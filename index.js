@@ -75,9 +75,23 @@ function drop(ev) {
 }
 
 function bgcolask() {
-    var bgcolaskit = prompt("What do you want your background color to be?", "Enter a HEX value here");
-    document.getElementById("div1").style.backgroundColor = bgcolaskit;
-    addbgtoex();
+    swal({
+    title: "Background-color",
+    text: "Enter a HEX value or an RGB value.",
+    type: "input",
+    showCancelButton: true,
+    closeOnConfirm: false,
+    animation: "slide-from-top",
+    inputPlaceholder: "blue" },
+    function(inputValue){
+    if (inputValue === false) return false;
+    if (inputValue === "") {
+        swal.showInputError("Please enter a color!!");
+        return false
+    }
+    document.getElementById("div1").style.backgroundColor = inputValue;
+    addbgtoex(inputValue);
+    });
 }
 
 function faviconask() {
@@ -115,7 +129,7 @@ function exportdacode() {
     prompt("Click CTRL+C or CMND+C to copy.", exportcode);
 }
 
-function addbgtoex() {
+function addbgtoex(bgcolaskit) {
     exportcode = exportcode + "<style>body{background-color: " + bgcolaskit +
         "}<\/style>";
 }
