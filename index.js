@@ -87,6 +87,7 @@ function drop(ev) {
                 }
                 document.getElementById(ev.target.id).innerHTML = y + inputValue;
                 exportcode = exportcode + inputValue;
+                swal("Yay!", "Element added!", "");
             });
     }
     if (data == "link") {
@@ -116,6 +117,7 @@ function bgcolask() {
             }
             document.getElementById("div1").style.backgroundColor = inputValue;
             addbgtoex(inputValue);
+            swal("Yay!", "Element added!", "");
         });
 }
 
@@ -135,6 +137,7 @@ function faviconask() {
                 return false
             }
             changeFavicon(inputValue);
+            swal("Yay!", "Element added!", "");
         });
 }
 
