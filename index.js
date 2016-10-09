@@ -36,15 +36,28 @@ function drop(ev) {
         }
     }
     if (data == "ytembed") {
-        var x = prompt("YouTube Video ID", "iVSvuXeAxeE");
-        if (x !== null) {
-            document.getElementById(ev.target.id).innerHTML = y +
-                "<iframe width=560 height=315 src=https://www.youtube.com/embed/" +
-                x + " frameborder=" + 0 + " allowfullscreen><\/iframe>";
-            exportcode = exportcode +
-                "<iframe width=560 height=315 src=https://www.youtube.com/embed/" +
-                x + " frameborder=" + 0 + " allowfullscreen><\/iframe>";
-        }
+        swal({
+                title: "Scratch Embed",
+                text: "Enter a Scratch project ID",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "12345678"
+            }, function(inputValue) {
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("Please enter a scratch ID");
+                    return false
+                }
+                document.getElementById(ev.target.id).innerHTML = y +
+                    "<iframe width=560 height=315 src=https://www.youtube.com/embed/" +
+                    inputValue + " frameborder=" + 0 + " allowfullscreen><\/iframe>";
+                exportcode = exportcode +
+                    "<iframe width=560 height=315 src=https://www.youtube.com/embed/" +
+                    inputValue + " frameborder=" + 0 + " allowfullscreen><\/iframe>";
+                swal("Yay!", "Element added!", "");
+            });
     }
     if (data == "scratchembed") {
         swal({
@@ -62,10 +75,10 @@ function drop(ev) {
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
-                    "<embed src=https://scratchv.usa.cc/dragon-drop.html?id=" +
+                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
                     inputValue + " width=485 height=395>";
                 exportcode = exportcode +
-                    "<embed src=https://scratchv.usa.cc/dragon-drop.html?id=" +
+                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
                     inputValue + " width=485 height=395>"
                 swal("Yay!", "Element added!", "");
             });
@@ -102,7 +115,7 @@ function drop(ev) {
 
 function bgcolask() {
     swal({
-            title: "Background color",
+            title: "Background-color",
             text: "Enter a HEX value or an RGB value.",
             type: "input",
             showCancelButton: true,
