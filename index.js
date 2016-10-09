@@ -38,16 +38,16 @@ function drop(ev) {
     if (data == "ytembed") {
         swal({
                 title: "Youtube Embed",
-                text: "Enter a Youtube Embed ID",
+                text: "Enter a Youtube video ID",
                 type: "input",
                 showCancelButton: true,
                 closeOnConfirm: false,
                 animation: "slide-from-top",
-                inputPlaceholder: "12345678"
+                inputPlaceholder: "oykOAfgbiZ4"
             }, function(inputValue) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
-                    swal.showInputError("Please enter a Youtube embed id.");
+                    swal.showInputError("Please enter a Youtube video ID.");
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
@@ -67,11 +67,11 @@ function drop(ev) {
                 showCancelButton: true,
                 closeOnConfirm: false,
                 animation: "slide-from-top",
-                inputPlaceholder: "12345678"
+                inputPlaceholder: "118988263"
             }, function(inputValue) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
-                    swal.showInputError("Please enter a scratch ID");
+                    swal.showInputError("Please enter a scratch project ID");
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
@@ -91,7 +91,7 @@ function drop(ev) {
                 showCancelButton: true,
                 closeOnConfirm: false,
                 animation: "slide-from-top",
-                inputPlaceholder: "<!DOCTYP h....."
+                inputPlaceholder: "<!DOCTYPE html>"
             }, function(inputValue) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
@@ -142,7 +142,7 @@ function faviconask() {
             showCancelButton: true,
             closeOnConfirm: false,
             animation: "slide-from-top",
-            inputPlaceholder: "/favicon.ico"
+            inputPlaceholder: "favicon.ico"
         }, function(inputValue) {
             if (inputValue === false) return false;
             if (inputValue === "") {
@@ -173,7 +173,7 @@ function exportdacode() {
 function enter() {
     swal({
             title: "Password",
-            text: "Enter the password",
+            text: "Enter the password to continue",
             type: "input",
             showCancelButton: false,
             closeOnConfirm: false,
@@ -182,7 +182,7 @@ function enter() {
         }, function(inputValue) {
             if (inputValue === false) return false;
             if (inputValue === "") {
-                swal.showInputError("You forgot to fill out the password box!!");
+                swal.showInputError("Enter a pssword first!!");
                 return false
             }
             if (inputValue === password) {
@@ -244,4 +244,8 @@ function previewIt() {
     var html = exportcode;
     var dataURI = 'data:text/html,' + encodeURIComponent(html);
     window.open(dataURI);
+}
+
+function settingsDialog() {
+    swal("Waoh!", "Feature not available!!", "error");
 }
