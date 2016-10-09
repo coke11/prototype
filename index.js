@@ -3,6 +3,7 @@ var exportcode = "";
 var elementslint = "";
 var textelement = "";
 //end of set variables.
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -57,12 +58,23 @@ function drop(ev) {
         }
     }
     if (data == "html") {
-        var text = prompt("What HTML do you want here?",
-            "ENTER YOUR TEXT HERE");
-        if (text !== null) {
-            document.getElementById(ev.target.id).innerHTML = y + text;
-            exportcode = exportcode + text;
-        }
+        swal({
+                title: "HTML",
+                text: "Enter some HTML for your site",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "<!DOCTYP h....."
+            }, function(inputValue) {
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("Please enter some HTML");
+                    return false
+                }
+                document.getElementById(ev.target.id).innerHTML = y + inputValue;
+                exportcode = exportcode + inputValue;
+            });
     }
     if (data == "link") {
         var linkie = prompt("Enter the website address", "http://");
@@ -76,41 +88,41 @@ function drop(ev) {
 
 function bgcolask() {
     swal({
-    title: "Background-color",
-    text: "Enter a HEX value or an RGB value.",
-    type: "input",
-    showCancelButton: true,
-    closeOnConfirm: false,
-    animation: "slide-from-top",
-    inputPlaceholder: "blue" },
-    function(inputValue){
-    if (inputValue === false) return false;
-    if (inputValue === "") {
-        swal.showInputError("Please enter a color!!");
-        return false
-    }
-    document.getElementById("div1").style.backgroundColor = inputValue;
-    addbgtoex(inputValue);
-    });
+            title: "Background-color",
+            text: "Enter a HEX value or an RGB value.",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: "slide-from-top",
+            inputPlaceholder: "blue"
+        }, function(inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("Please enter a color!!");
+                return false
+            }
+            document.getElementById("div1").style.backgroundColor = inputValue;
+            addbgtoex(inputValue);
+        });
 }
 
 function faviconask() {
     swal({
-    title: "Favicon",
-    text: "Please leave a link to a favicon. If the file does not end with .ico , then the favicon will not change.",
-    type: "input",
-    showCancelButton: true,
-    closeOnConfirm: false,
-    animation: "slide-from-top",
-    inputPlaceholder: "/favicon.ico" },
-    function(inputValue){
-    if (inputValue === false) return false;
-    if (inputValue === "") {
-        swal.showInputError("Please enter a link!!");
-        return false
-    }
-    changeFavicon(inputValue);
-    });
+            title: "Favicon",
+            text: "Please leave a link to a favicon. If the file does not end with .ico , then the favicon will not change.",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: "slide-from-top",
+            inputPlaceholder: "/favicon.ico"
+        }, function(inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("Please enter a link!!");
+                return false
+            }
+            changeFavicon(inputValue);
+        });
 }
 
 function changeFavicon(link) {
@@ -133,36 +145,36 @@ function addbgtoex(bgcolaskit) {
     exportcode = exportcode + "<style>body{background-color: " + bgcolaskit +
         "}<\/style>";
 }
-function  themeask(){
-swal({
-    title: "Theme",
-    text: "Themes: 'Rasberry', 'Peace', and 'DragonDrop'",
-    type: "input",
-    showCancelButton: true,
-    closeOnConfirm: false,
-    animation: "slide-from-top",
-    inputPlaceholder: "Enter a Theme name" },
-    function(inputValue){
-    if (inputValue === false) return false;
-    if (inputValue === "") {
-        swal.showInputError("You forgot to fill out the theme!!");
-        return false
-    }
-    swal(
-        "This function is not available!",
-        //"You wrote: " + inputValue,
-        "",
-        "error"
-    );
-});
+
+function themeask() {
+    swal({
+            title: "Theme",
+            text: "Themes: 'Rasberry', 'Peace', and 'DragonDrop'",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: "slide-from-top",
+            inputPlaceholder: "Enter a Theme name"
+        }, function(inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("You forgot to fill out the theme!!");
+                return false
+            }
+            swal(
+                "This function is not available!",
+                //"You wrote: " + inputValue,
+                "",
+                "error");
+        });
 }
 
 function templates() {
-    swal("Waoh!", "Feature not available!!", "error")
+    swal("Waoh!", "Feature not available!!", "error");
 }
 
 function submit() {
-    swal("Waoh!", "Feature not available!!", "error")
+    swal("Waoh!", "Feature not available!!", "error");
 }
 
 function closedialogue() {
