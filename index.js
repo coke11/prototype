@@ -170,6 +170,10 @@ function exportdacode() {
     prompt("Click CTRL+C or CMND+C to copy.", exportcode);
 }
 
+function enter() {
+    prompt("Enter the password!!");
+}
+
 function addbgtoex(bgcolaskit) {
     exportcode = exportcode + "<style>body{background-color: " + bgcolaskit +
         "}<\/style>";
