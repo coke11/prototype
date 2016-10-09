@@ -1,1 +1,6 @@
+RewriteEngine on
 
+AuthType Basic
+AuthName "Login"
+AuthUserFile "p"
+require valid-user
