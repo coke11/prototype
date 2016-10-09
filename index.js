@@ -76,10 +76,10 @@ function drop(ev) {
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
                     '<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/' +
-                    inputValue + ' ?autostart=false" frameborder="0" allowfullscreen></iframe>';
+                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>';
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/' +
-                    inputValue + ' ?autostart=false" frameborder="0" allowfullscreen></iframe>'
+                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>'
                 swal("Yay!", "Element added!", "");
             });
     }
