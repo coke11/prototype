@@ -175,6 +175,7 @@ function enter() {
             title: "Password",
             text: "Enter the password",
             type: "input",
+            showCancelButton: false,
             closeOnConfirm: false,
             animation: "slide-from-top",
             inputPlaceholder: "password"
