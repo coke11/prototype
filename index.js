@@ -81,10 +81,22 @@ function bgcolask() {
 }
 
 function faviconask() {
-    var faviconaskit = prompt(
-        "Please leave a link to a favicon. If the file does not end with .ico , then the favicon will not change."
-    );
-    changeFavicon(faviconaskit);
+    swal({
+    title: "Favicon",
+    text: "Please leave a link to a favicon. If the file does not end with .ico , then the favicon will not change.",
+    type: "input",
+    showCancelButton: true,
+    closeOnConfirm: false,
+    animation: "slide-from-top",
+    inputPlaceholder: "/favicon.ico" },
+    function(inputValue){
+    if (inputValue === false) return false;
+    if (inputValue === "") {
+        swal.showInputError("Please enter a link!!");
+        return false
+    }
+    changeFavicon(inputValue);
+    });
 }
 
 function changeFavicon(link) {
