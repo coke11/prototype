@@ -37,8 +37,8 @@ function drop(ev) {
     }
     if (data == "ytembed") {
         swal({
-                title: "Scratch Embed",
-                text: "Enter a Scratch project ID",
+                title: "Youtube Embed",
+                text: "Enter a Youtube Embed ID",
                 type: "input",
                 showCancelButton: true,
                 closeOnConfirm: false,
@@ -47,7 +47,7 @@ function drop(ev) {
             }, function(inputValue) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
-                    swal.showInputError("Please enter a scratch ID");
+                    swal.showInputError("Please enter a Youtube embed id.");
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
