@@ -75,11 +75,11 @@ function drop(ev) {
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
-                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
-                    inputValue + " width=485 height=395>";
+                    '<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/' +
+                    inputValue + ' ?autostart=false" frameborder="0" allowfullscreen></iframe>';
                 exportcode = exportcode +
-                    "<embed src=http://scratchv.usa.cc/dragon-drop.html?id=" +
-                    inputValue + " width=485 height=395>"
+                    '<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/' +
+                    inputValue + ' ?autostart=false" frameborder="0" allowfullscreen></iframe>'
                 swal("Yay!", "Element added!", "");
             });
     }
