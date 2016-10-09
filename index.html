@@ -20,11 +20,12 @@ SOFTWARE.
 <!DOCTYPE html>
 <html>
 
-    <head onload="enter()">
+    <head>
         <title>DragonDrop Editor</title>
         <link href="https://file.myfontastic.com/9LTB4UoLJhFtVmhyo7SnqM/icons.css" rel="stylesheet">
         <link href="https://cdn2.scratch.mit.edu/get_image/user/17757195_60x60.png?v=1471181436.56" id="favicon" rel="shortcut icon" type="image/png">
-        <script src="https://dragon-drop-scratch.github.io/prototype/index.js"></script>
+        <script src="index.js"></script>
+        <script src="editor.js"></script>
         <script src="dist/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <style>
@@ -123,7 +124,7 @@ SOFTWARE.
         </style>
     </head>
 
-    <body>
+    <body onload="enter()">
         <div id="blue">
             <div id="blue_nav">
                 <div class="syms white-blue">
