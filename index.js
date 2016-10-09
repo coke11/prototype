@@ -171,7 +171,27 @@ function exportdacode() {
 }
 
 function enter() {
-    prompt("Enter the password!!");
+    swal({
+            title: "Password",
+            text: "Enter the password",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: "slide-from-top",
+            inputPlaceholder: "password"
+        }, function(inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("You forgot to fill out the password box!!");
+                return false
+            }
+            if (inputValue === password) {
+                swal("Correct!!", "Welcome Admin!", "success");
+            } else {
+                swal.showInputError("Password incorrect");
+                return false
+            }
+        });
 }
 
 function addbgtoex(bgcolaskit) {
