@@ -247,5 +247,5 @@ function previewIt() {
 }
 
 function settingsDialog() {
-    swal("Waoh!", "Feature not available!!", "error");
+    swal("Oh no!", "This feature isn't available yet!", "error");
 }
