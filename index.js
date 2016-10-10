@@ -38,7 +38,7 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if (data == "text") {
-            document.getElementById(ev.target.id).innerHTML = y + "<div contenteditable></div>" +
+            document.getElementById(ev.target.id).innerHTML = y + "<div contenteditable placeholder="Enter Text Here..."></div>" +
                 "<br>";
             textelement = text + "  ";
             exportcode = exportcode + text + "<br>";
