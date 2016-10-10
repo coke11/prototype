@@ -38,14 +38,10 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if (data == "text") {
-        var text = prompt("What text do you want here?",
-            "ENTER YOUR TEXT HERE");
-        if (text !== null) {
-            document.getElementById(ev.target.id).innerHTML = y + text +
+            document.getElementById(ev.target.id).innerHTML = y + "<div contenteditable>" + text + "</div>" +
                 "<br>";
             textelement = text + "  ";
             exportcode = exportcode + text + "<br>";
-        }
     }
     if (data == "photo") {
         var pic = prompt("Leave a link to your picture here",
