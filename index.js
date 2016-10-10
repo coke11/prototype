@@ -38,10 +38,9 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if (data == "text") {
-            var ddtext = document.getElementById(ev.target.id);
             document.getElementById(ev.target.id).innerHTML = y + "<div id="dd-text-edit-tf">This is a text box <i>Enter text here...</i></div>" +
                 "<br>";
-            ddtext.contentEditable = "true";
+            document.getElementById("dd-text-edit-tf").contentEditable = true;
             exportcode = exportcode + "<div id="dd-text">This is a text box <i>Enter text here...</i></div>" + "<br>";
     }
     if (data == "photo") {
