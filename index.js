@@ -134,7 +134,7 @@ function drop(ev) {
 function bgcolask() {
     swal({
             title: "Background-color",
-            text: "Enter a HEX value or an RGB value.",
+            text: "Enter a HEX value or a color name (an RGB Value).",
             type: "input",
             showCancelButton: true,
             closeOnConfirm: false,
