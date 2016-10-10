@@ -59,6 +59,7 @@ function drop(ev) {
                 swal({
                     title: "Yay!",
                     text: "Element added!",
+                    type: "success",
                     timer: 3000,
                     showConfirmButton: true
                 });
@@ -88,6 +89,7 @@ function drop(ev) {
                 swal({
                     title: "Yay!",
                     text: "Element added!",
+                    type: "success",
                     timer: 3000,
                     showConfirmButton: true
                 });
@@ -113,6 +115,7 @@ function drop(ev) {
                 swal({
                     title: "Yay!",
                     text: "Element added!",
+                    type: "success",
                     timer: 3000,
                     showConfirmButton: true
                 });
@@ -148,6 +151,7 @@ function bgcolask() {
             swal({
                     title: "Yay!",
                     text: "Element added!",
+                    type: "success",
                     timer: 3000,
                     showConfirmButton: true
                 });
@@ -173,6 +177,7 @@ function faviconask() {
             swal({
                     title: "Yay!",
                     text: "Element added!",
+                    type: "success",
                     timer: 3000,
                     showConfirmButton: true
                 });
