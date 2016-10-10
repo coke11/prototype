@@ -23,6 +23,7 @@ function getCookie(cname) {
 var exportcode = "<style>body{font-family:helvetica;}</style>";
 var elementslint = "";
 var textelement = "";
+var numoft = 0;
 //end of set variables.
 
 function allowDrop(ev) {
@@ -38,8 +39,9 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if (data == "text") {
-            document.getElementById(ev.target.id).innerHTML = y + "<div id='dd-text-edit-tf' contenteditable>This is a text box <i>Enter text here...</i></div>" + "<br>";
-            exportcode = exportcode + "<div id='dd-text'>This is a text box <i>Enter text here...</i></div>" + "<br>";
+            numoft = numoft + 1;
+            document.getElementById(ev.target.id).innerHTML = y + "<div id='dd-text-edit" + numoft + "' contenteditable>This is a text box <i>Enter text here...</i></div>" + "<br>";
+            exportcode = exportcode + "<div id='dd-text" + numoft + "'>This is a text box <i>Enter text here...</i></div>" + "<br>";
     }
     if (data == "photo") {
         var pic = prompt("Leave a link to your picture here",
