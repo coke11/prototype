@@ -121,10 +121,33 @@ SOFTWARE.
             .point:hover {
                 cursor: pointer;
             }
-            #contextMenuContainer {display: none; position: fixed; border: 1px solid gray; background: #ccc; width:150px; z-index: 100;}
-            #contextMenuContainer #contextMenu {list-style: none; padding: 0px; font-size: 20px;}
-            #contextMenuContainer #contextMenu li {font-size: 20px; font-family: Helvetica; cursor: pointer; padding-top: 5px; padding-left: 20px; padding-right: 20px; padding-bottom: 5px; text-align: center;}
-            #contextMenuContainer #contextMenu .dd-menu {color: #ddd; cursor: url("https://cdn2.scratch.mit.edu/get_image/user/17757195_60x60.png?v=1471181436.56");}
+            #contextMenuContainer {
+                display: none;
+                position: fixed;
+                border: 1px solid gray;
+                background: #ccc;
+                width:150px;
+                z-index: 100;
+            }
+            #contextMenuContainer #contextMenu {
+                list-style: none;
+                padding: 0px;
+                font-size: 20px;
+            }
+            #contextMenuContainer #contextMenu li {
+                font-size: 20px;
+                font-family: Helvetica;
+                cursor: pointer;
+                padding-top: 5px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 5px;
+                text-align: center;
+            }
+            #contextMenuContainer #contextMenu .dd-menu {
+                color: #ddd;
+                cursor: url("https://cdn2.scratch.mit.edu/get_image/user/17757195_60x60.png?v=1471181436.56");
+            }
         </style>
     </head>
 
@@ -133,7 +156,9 @@ SOFTWARE.
             <div id="blue_nav">
                 <div class="syms white-blue">
                      <a href="https://dragon-drop-scratch.github.io/dragon-drop-www/" class="DD">DragonDrop</a>  <span class="icon-torso white-blue"></span>&nbsp;alpha-tester&nbsp;<span class="icon-triangle-down"></span> &nbsp;&nbsp;|&nbsp;&nbsp;
-                     <span class="icon-lock-open"></span>&nbsp;Publish &nbsp;&nbsp;|&nbsp;&nbsp; <span class="icon-triangle-right"></span>&nbsp;<span class="point" onclick="previewIt()">Preview</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span class="icon-widget"></span>&nbsp;<span class="point" onClick="settingsDialog()">Settings</span>
+                     <span class="icon-lock-open"></span>&nbsp;Publish &nbsp;&nbsp;|&nbsp;&nbsp; <span class="icon-triangle-right"></span>&nbsp;<span class="point" onclick="previewIt()">Preview</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span class="icon-widget"></span>&nbsp;
+                    <span
+                    class="point" onClick="settingsDialog()">Settings</span>
                 </div>
             </div>
         </div>
@@ -323,15 +348,66 @@ Use alert2("") to use the alert function
 <br>Url: <input><br><button>submit</button>
 -->
         <script src="index.js"></script>
-        
-        <div id="contextMenuContainer">                         
-            <ul id="contextMenu">                          
-                <li class="dd-menu">DragonDrop</li>   
+
+        <div id="contextMenuContainer">
+            <ul id="contextMenu">
+                <li class="dd-menu">DragonDrop</li>
                 <hr>
                 <li>Option 1</li>
                 <li>Option 2</li>
             </ul>
         </div>
+        <script>
+            $(function() {
+                var doubleClicked = false;
+                $(document).on("contextmenu", function(e) {
+                    if (doubleClicked == false) {
+                        e.preventDefault(); // To prevent the default context menu.
+                        var windowHeight = $(window).height() / 2;
+                        var windowWidth = $(window).width() / 2;
+                        //When user click on bottom-left part of window
+                        if (e.clientY > windowHeight && e.clientX <= windowWidth) {
+                            $("#contextMenuContainer").css("left", e.clientX);
+                            $("#contextMenuContainer").css("bottom", $(window).height() - e.clientY);
+                            $("#contextMenuContainer").css("right", "auto");
+                            $("#contextMenuContainer").css("top", "auto");
+                        } else if (e.clientY > windowHeight && e.clientX > windowWidth) {
+                            //When user click on bottom-right part of window
+                            $("#contextMenuContainer").css("right", $(window).width() - e.clientX);
+                            $("#contextMenuContainer").css("bottom", $(window).height() - e.clientY);
+                            $("#contextMenuContainer").css("left", "auto");
+                            $("#contextMenuContainer").css("top", "auto");
+                        } else if (e.clientY <= windowHeight && e.clientX <= windowWidth) {
+                            //When user click on top-left part of window
+                            $("#contextMenuContainer").css("left", e.clientX);
+                            $("#contextMenuContainer").css("top", e.clientY);
+                            $("#contextMenuContainer").css("right", "auto");
+                            $("#contextMenuContainer").css("bottom", "auto");
+                        } else {
+                            //When user click on top-right part of window
+                            $("#contextMenuContainer").css("right", $(window).width() - e.clientX);
+                            $("#contextMenuContainer").css("top", e.clientY);
+                            $("#contextMenuContainer").css("left", "auto");
+                            $("#contextMenuContainer").css("bottom", "auto");
+                        }
+                        $("#contextMenuContainer").fadeIn(100, FocusContextOut());
+                        doubleClicked = true;
+                    } else {
+                        e.preventDefault();
+                        doubleClicked = false;
+                        $("#contextMenuContainer").fadeOut(100);
+                    }
+                });
+
+                function FocusContextOut() {
+                    $(document).on("click", function() {
+                        doubleClicked = false;
+                        $("#contextMenuContainer").fadeOut(100);
+                        $(document).off("click");
+                    });
+                }
+            });
+        </script>
     </body>
 
 </html>
