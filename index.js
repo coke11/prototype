@@ -20,8 +20,8 @@ function getCookie(cname) {
 }
 
 //Set variables:
-var exportcode = document.getElementById("exportcode").innerHTML;
-exportcode = "<style>body{font-family:helvetica;}</style>";
+var exportcode = document.getElementById("exportcode");
+exportcode.innerHTML = "<style>body{font-family:helvetica;}</style>";
 var elementslint = "";
 var textelement = "";
 var numoft = 0;
@@ -351,7 +351,7 @@ window.onbeforeunload = confirmOnPageExit;
 document.onkeypress=function(e){
     var i = 0;
     while (i < numoft + 1) {
-        document.getElementById("dd-text" + i).innerHTML = document.getElementById("dd-text-edit" + i).innerHTML;
+        document.getElementById("dd-text" + i).textContent = document.getElementById("dd-text-edit" + i).textContent;
         i++;
     }
 }
