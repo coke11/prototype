@@ -39,8 +39,7 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     if (data == "text") {
             document.getElementById(ev.target.id).innerHTML = y + "<div id="dd-text-edit-tf">This is a text box <i>Enter text here...</i></div>" +
-                "<br>";
-            document.getElementById("dd-text-edit-tf").contentEditable = true;
+            "<br>";
             exportcode = exportcode + "<div id="dd-text">This is a text box <i>Enter text here...</i></div>" + "<br>";
     }
     if (data == "photo") {
@@ -347,3 +346,4 @@ var confirmOnPageExit = function (e) {
     return message;
 };
 window.onbeforeunload = confirmOnPageExit;
+document.getElementById("dd-text-edit-tf").contentEditable = true;
