@@ -20,7 +20,8 @@ function getCookie(cname) {
 }
 
 //Set variables:
-var exportcode = "<style>body{font-family:helvetica;}</style>";
+var exportcode = document.getElementById("exportcode").innerHTML;
+exportcode = "<style>body{font-family:helvetica;}</style>";
 var elementslint = "";
 var textelement = "";
 var numoft = 0;
