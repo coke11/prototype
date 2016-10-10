@@ -216,7 +216,7 @@ function enter() {
                 return false
             }
             if (inputValue === password) {
-                swal("Correct!!", "Welcome Admin!", "success");
+                swal("Correct!!", "Welcome Alpha Tester!", "success");
             } else {
                 swal.showInputError("Password incorrect");
                 return false
