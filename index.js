@@ -56,7 +56,12 @@ function drop(ev) {
                 exportcode = exportcode +
                     "<iframe width=560 height=315 src=https://www.youtube.com/embed/" +
                     inputValue + " frameborder=" + 0 + " allowfullscreen><\/iframe>";
-                swal("Yay!", "Element added!", "");
+                swal({
+                    title: "Yay!",
+                    text: "Element added!",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
             });
     }
     if (data == "scratchembed") {
