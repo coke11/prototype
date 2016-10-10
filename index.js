@@ -102,7 +102,7 @@ function drop(ev) {
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
-                    '<div onclick="change_project()" style="padding:20px;"><iframe onclick="change_project()" allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
+                    '<div onclick="change_project()" style="padding:20px;"><iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
                     inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe></div>';
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
@@ -132,8 +132,8 @@ function drop(ev) {
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
-                    '<iframe onclick="change_project()" allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
-                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>';
+                    '<div onclick="change_project()" style="padding:20px;"><iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
+                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe></div>';
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
                     inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>'
