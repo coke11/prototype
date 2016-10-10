@@ -42,7 +42,7 @@ function drop(ev) {
     if (data == "text") {
             numoft = numoft + 1;
             document.getElementById(ev.target.id).innerHTML = y + "<div id='dd-text-edit" + numoft + "' contenteditable>This is a text box <i>Enter text here...</i></div>" + "<br>";
-            exportcode = exportcode + "<div id='dd-text" + numoft + "'>This is a text box <i>Enter text here...</i></div>" + "<br>";
+            exportcode.innerHTML = exportcode + "<div id='dd-text" + numoft + "'>This is a text box <i>Enter text here...</i></div>" + "<br>";
     }
     if (data == "photo") {
         var pic = prompt("Leave a link to your picture here",
