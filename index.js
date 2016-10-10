@@ -102,8 +102,8 @@ function drop(ev) {
                     return false
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
-                    '<iframe onclick="change_project()" allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
-                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>';
+                    '<div onclick="change_project()" style="padding:20px;"><iframe onclick="change_project()" allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
+                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe></div>';
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
                     inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>'
@@ -334,3 +334,7 @@ function previewIt() {
 function settingsDialog() {
     swal("Oh no!", "This feature isn't available yet!", "error");
 }
+
+window.onbeforeunload = function(){
+    swal("Oh no!", "Are you sure you want to leave?", "question");
+};
