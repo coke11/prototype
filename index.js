@@ -339,7 +339,7 @@ var confirmOnPageExit = function (e) {
     // If we haven't been passed the event get the window.event
     e = e || window.event;
 
-    var message = 'Any text will block the navigation and display a prompt';
+    var message = 'Woah!';
 
     // For IE6-8 and Firefox prior to version 4
     if (e) 
