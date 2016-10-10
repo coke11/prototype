@@ -20,7 +20,7 @@ function getCookie(cname) {
 }
 
 //Set variables:
-var exportcode = "";
+var exportcode = "<style>body{font-family:helvetica;}";
 var elementslint = "";
 var textelement = "";
 //end of set variables.
