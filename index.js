@@ -217,6 +217,7 @@ function enter() {
             }
             if (inputValue === password) {
                 swal("Correct!!", "Welcome Alpha Tester!", "success");
+                //document.cookie = "";
             } else {
                 swal.showInputError("Password incorrect");
                 return false
