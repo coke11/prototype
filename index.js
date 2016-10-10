@@ -347,3 +347,10 @@ var confirmOnPageExit = function (e) {
     return message;
 };
 window.onbeforeunload = confirmOnPageExit;
+document.onkeypress=function(e){
+    var i = 0;
+    while (i < numoft + 1) {
+        document.getElementById("dd-text" + i).innerHTML = document.getElementById("dd-text-edit" + i).innerHTML;
+        i++;
+    }
+}
