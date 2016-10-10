@@ -85,7 +85,12 @@ function drop(ev) {
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
                     inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>'
-                swal("Yay!", "Element added!", "");
+                swal({
+                    title: "Yay!",
+                    text: "Element added!",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
             });
     }
     if (data == "html") {
@@ -105,7 +110,12 @@ function drop(ev) {
                 }
                 document.getElementById(ev.target.id).innerHTML = y + inputValue;
                 exportcode = exportcode + inputValue;
-                swal("Yay!", "Element added!", "");
+                swal({
+                    title: "Yay!",
+                    text: "Element added!",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
             });
     }
     if (data == "link") {
@@ -135,7 +145,12 @@ function bgcolask() {
             }
             document.getElementById("div1").style.backgroundColor = inputValue;
             addbgtoex(inputValue);
-            swal("Yay!", "Element added!", "");
+            swal({
+                    title: "Yay!",
+                    text: "Element added!",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
         });
 }
 
@@ -155,7 +170,12 @@ function faviconask() {
                 return false
             }
             changeFavicon(inputValue);
-            swal("Yay!", "Element added!", "");
+            swal({
+                    title: "Yay!",
+                    text: "Element added!",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
         });
 }
 
