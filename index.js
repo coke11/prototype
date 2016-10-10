@@ -323,7 +323,7 @@ function alert2(alertedtext) {
 }
 
 function previewIt() {
-    var html = exportcode;
+    var html = exportcode.innerHTML;
     var dataURI = 'data:text/html,' + encodeURIComponent(html);
     window.open(dataURI);
 }
