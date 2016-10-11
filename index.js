@@ -347,7 +347,7 @@ function settingsDialog() {
             
              swal("Changed!", "Your thing has changed.", "success");
             
-        }else {     swal("Cancelled", "Your background is the same :D", "success");   }
+        }else {     swal("Cancelled", "Your background is the same :D", "error");   }
     }
 
     });
