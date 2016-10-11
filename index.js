@@ -12,7 +12,7 @@ function getCookie(cname) {
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
         }
     }
@@ -67,7 +67,7 @@ function drop(ev) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
                     swal.showInputError("Please enter a Youtube video ID.");
-                    return false
+                    return false;
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
                     "<iframe width=560 height=315 src=https://www.youtube.com/embed/" +
@@ -97,14 +97,14 @@ function drop(ev) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
                     swal.showInputError("Please enter a scratch project ID");
-                    return false
+                    return false;
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
                     '<div onclick="change_project()" style="padding:20px;"><iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
                     inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe></div>';
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
-                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>'
+                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>';
                 swal({
                     title: "Yay!",
                     text: "Element added!",
@@ -127,14 +127,14 @@ function drop(ev) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
                     swal.showInputError("Please enter a scratch project ID");
-                    return false
+                    return false;
                 }
                 document.getElementById(ev.target.id).innerHTML = y +
                     '<div onclick="change_project()" style="padding:20px;"><iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
                     inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe></div>';
                 exportcode = exportcode +
                     '<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/' +
-                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>'
+                    inputValue + '?autostart=false" frameborder="0" allowfullscreen></iframe>';
                 swal({
                     title: "Yay!",
                     text: "Element changed!",
@@ -157,7 +157,7 @@ function drop(ev) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
                     swal.showInputError("Please enter some HTML");
-                    return false
+                    return false;
                 }
                 document.getElementById(ev.target.id).innerHTML = y + inputValue;
                 exportcode = exportcode + inputValue;
@@ -172,7 +172,7 @@ function drop(ev) {
     }
     if (data == "link") {
         var linkie = prompt("Enter the website address", "http://");
-        var linkietext = prompt("What should this link say?")
+        var linkietext = prompt("What should this link say?");
         document.getElementById(ev.target.id).innerHTML = y + "<a href=" +
             linkie + " > " + linkietext + " <\/a>";
         exportcode = exportcode + "<a  href=" + linkie +
@@ -193,7 +193,7 @@ function bgcolask() {
             if (inputValue === false) return false;
             if (inputValue === "") {
                 swal.showInputError("Please enter a color!!");
-                return false
+                return false;
             }
             document.getElementById("div1").style.backgroundColor = inputValue;
             addbgtoex(inputValue);
@@ -220,7 +220,7 @@ function faviconask() {
             if (inputValue === false) return false;
             if (inputValue === "") {
                 swal.showInputError("Please enter a link!!");
-                return false
+                return false;
             }
             changeFavicon(inputValue);
             swal({
@@ -251,7 +251,7 @@ function exportdacode() {
 
 function enter() {
     var user = getCookie("pass");
-    if (user == "") {
+    if (user === "") {
     swal({
             title: "Password",
             text: "Enter the password to continue",
@@ -264,14 +264,14 @@ function enter() {
             if (inputValue === false) return false;
             if (inputValue === "") {
                 swal.showInputError("Enter a pssword first!!");
-                return false
+                return false;
             }
             if (inputValue === password) {
                 swal("Correct!!", "Welcome Alpha Tester!", "success");
                 setCookie("pass", "true", "1");
             } else {
                 swal.showInputError("Password incorrect");
-                return false
+                return false;
             }
         });
     }
@@ -295,7 +295,7 @@ function themeask() {
             if (inputValue === false) return false;
             if (inputValue === "") {
                 swal.showInputError("You forgot to fill out the theme!!");
-                return false
+                return false;
             }
             swal(
                 "This function is not available!",
@@ -333,7 +333,7 @@ function settingsDialog() {
     swal({   
         title: "<small>Settings</small>",   
           text: "Colored background" 
-  <input type="checkbox" name="Blue" value="Blue"> Blue<br>",  
+  <input type="checkbox" name="Blue" value="Blue"> Blue<br>", 
           html: true 
                type: "warning",  
         showCancelButton: true,  
@@ -343,30 +343,25 @@ function settingsDialog() {
         closeOnConfirm: false, 
         closeOnCancel: false,
         function (isConfirm) {
-        if(Blue.checked){
-            
+        if(Blue.checked){"
+
              swal("Changed!", "Your thing has changed.", "success");
             
-        }else {     swal("Cancelled", "Your background is the same :D", "error");   }
+        }else {     swal("Cancelled", "Your background is the same :D", "success");   }
     }
-
     });
     
     
 }
-
 var confirmOnPageExit = function (e) {
     // If we haven't been passed the event get the window.event
     e = e || window.event;
-
     var message = 'Woah!';
-
     // For IE6-8 and Firefox prior to version 4
     if (e) 
     {
         e.returnValue = message;
     }
-
     // For Chrome, Safari, IE8+ and Opera 12+
     return message;
 };
