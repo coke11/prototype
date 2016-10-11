@@ -341,10 +341,8 @@ function settingsDialog() {
         confirmButtonText: "Yes, delete it!",  
         cancelButtonText: "No, cancel plx!",  
         closeOnConfirm: false, 
-        closeOnCancel: false
-    });
-    
-    function (isConfirm) {
+        closeOnCancel: false,
+        function (isConfirm) {
         if(Blue.checked){
             
              swal("Changed!", "Your thing has changed.", "success");
@@ -352,6 +350,9 @@ function settingsDialog() {
         }else {     swal("Cancelled", "Your background is the same :D", "success");   }
     }
 
+    });
+    
+    
 }
 
 var confirmOnPageExit = function (e) {
