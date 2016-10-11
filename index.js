@@ -330,7 +330,28 @@ function previewIt() {
 }
 
 function settingsDialog() {
-    swal("Oh no!", "This feature isn't available yet!", "error");
+    swal({   
+        title: "<small>Settings</small>",   
+          text: "Colored background: 
+  <input type="checkbox" name="Blue" value="Blue"> Blue<br>",  
+          html: true 
+               type: "warning",  
+        showCancelButton: true,  
+        confirmButtonColor: "#DD6B55",  
+        confirmButtonText: "Yes, delete it!",  
+        cancelButtonText: "No, cancel plx!",  
+        closeOnConfirm: false, 
+        closeOnCancel: false
+    });
+    
+    function (isConfirm) {
+        if(Blue.checked){
+            
+             swal("Changed!", "Your thing has changed.", "success");
+            
+        }else {     swal("Cancelled", "Your background is the same :D", "success");   }
+    }
+
 }
 
 var confirmOnPageExit = function (e) {
