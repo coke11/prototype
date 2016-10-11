@@ -20,8 +20,9 @@ function getCookie(cname) {
 }
 
 //Set variables:
-var exportcode = document.getElementById("exportcode");
-exportcode.innerHTML = "<style>body{font-family:helvetica;}</style>";
+var exportcode = /*document.getElementById("exportcode");*/ "";
+//exportcode.innerHTML = "<style>body{font-family:helvetica;}</style>";
+exportcode = "<style>body{font-family:helvetica;}</style>";
 var elementslint = "";
 var textelement = "";
 var numoft = 0;
@@ -42,7 +43,7 @@ function drop(ev) {
     if (data == "text") {
             numoft = numoft + 1;
             document.getElementById(ev.target.id).innerHTML = y + "<div id='dd-text-edit" + numoft + "' contenteditable>This is a text box <i>Enter text here...</i></div>" + "<br>";
-            exportcode.innerHTML = exportcode + "<div id='dd-text" + numoft + "'>This is a text box <i>Enter text here...</i></div>" + "<br>";
+            exportcode = exportcode + "<div id='dd-text" + numoft + "'>This is a text box <i>Enter text here...</i></div>" + "<br>";
     }
     if (data == "photo") {
         var pic = prompt("Leave a link to your picture here",
@@ -348,10 +349,10 @@ var confirmOnPageExit = function (e) {
     return message;
 };
 window.onbeforeunload = confirmOnPageExit;
-document.onkeypress=function(e){
+/*document.onkeypress=function(e){
     var i = 0;
     while (i < numoft + 1) {
         document.getElementById("dd-text" + i).textContent = document.getElementById("dd-text-edit" + i).textContent;
         i++;
     }
-}
+}*/
