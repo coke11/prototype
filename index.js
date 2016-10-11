@@ -332,7 +332,7 @@ function previewIt() {
 function settingsDialog() {
     swal({   
         title: "<small>Settings</small>",   
-          text: "Colored background: 
+          text: "Colored background" 
   <input type="checkbox" name="Blue" value="Blue"> Blue<br>",  
           html: true 
                type: "warning",  
